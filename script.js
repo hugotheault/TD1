@@ -1,3 +1,29 @@
+//Jeu du Shifumi
+const MAX = 3;
+let bouton1 = document.getElementById('b1');
+let bouton2 = document.getElementById('b2');
+let bouton3 = document.getElementById('b3');
+let joueur = "";
+let robotChar = "";
+let robotInt = 0;
+bouton1.addEventListener('click', ()=>{
+    let robotInt = Math.floor(Math.random()*MAX)
+    joueur = "Pierre"
+    console.log(robotInt);
+});
+bouton2.addEventListener('click', ()=>{
+    let robotInt = Math.floor(Math.random()*MAX)
+    joueur = "Feuille"
+    console.log(robotInt);
+});
+bouton3.addEventListener('click', ()=>{
+    let robotInt = Math.floor(Math.random()*MAX)
+    joueur = "Ciseaux"
+    console.log(robotInt);
+});
+//robotInt == 0 ? (robotChar = "Pierre") : robotInt == 1 ? console.log("Feuille") : console.log("Ciseaux");
+
+
 //-------------------------------------------VAGUE 1-----------------------------------------------------------------------------------------------------------//
 
 // //Exercice 1
