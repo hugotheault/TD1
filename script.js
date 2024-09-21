@@ -1,27 +1,66 @@
 //Jeu du Shifumi
+// 0 = pierre ; 1 = feuille ; 2 = ciseaux
 const MAX = 3;
+let robotInt = 0;
 let bouton1 = document.getElementById('b1');
 let bouton2 = document.getElementById('b2');
 let bouton3 = document.getElementById('b3');
-let joueur = "";
-let robotChar = "";
-let robotInt = 0;
+
+let player = document.getElementById("player");
+let robot = document.getElementById("robot");
+let res = document.getElementById("res");
+
 bouton1.addEventListener('click', ()=>{
     let robotInt = Math.floor(Math.random()*MAX)
-    joueur = "Pierre"
-    console.log(robotInt);
+    // console.log("robot "+robotInt);
+    // console.log("humain "+0);
+    // console.log(gagne(0,robotInt));
+    player.innerHTML = "Pierre";
+    res.innerHTML = gagne(0,robotInt);
+    robot.innerHTML = (robotInt == 0 ? "Pierre" : robotInt == 1 ? "Feuille" : "Ciseaux") 
 });
 bouton2.addEventListener('click', ()=>{
     let robotInt = Math.floor(Math.random()*MAX)
-    joueur = "Feuille"
-    console.log(robotInt);
+    // console.log("robot "+robotInt);
+    // console.log("humain "+1);
+    // console.log(gagne(0,robotInt));
+    player.innerHTML = "Feuille";
+    res.innerHTML = gagne(0,robotInt);
 });
 bouton3.addEventListener('click', ()=>{
     let robotInt = Math.floor(Math.random()*MAX)
-    joueur = "Ciseaux"
-    console.log(robotInt);
+    // console.log("robot "+robotInt);
+    // console.log("humain "+2);
+    // console.log(gagne(0,robotInt));
+    player.innerHTML = "Ciseaux";
+    res.innerHTML = gagne(0,robotInt);
 });
-//robotInt == 0 ? (robotChar = "Pierre") : robotInt == 1 ? console.log("Feuille") : console.log("Ciseaux");
+
+function gagne (num, rob){
+    if( num == rob){
+        return "egalite";
+    }
+    else if(num == 0 && rob == 1){
+        return "perdu"
+    }
+    else if(num == 0 && rob == 2){
+        return "gange"
+    }
+    else if(num == 1 && rob == 0){
+        return "gagne"
+    }
+    else if(num == 1 && rob == 2){
+        return "perdu"
+    }
+    else if(num == 2 && rob == 0){
+        return "perdu"
+    }
+    else if(num == 2 && rob == 1){
+        return "gagne"
+    }
+};
+
+
 
 
 //-------------------------------------------VAGUE 1-----------------------------------------------------------------------------------------------------------//
